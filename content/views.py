@@ -10,8 +10,11 @@ class Home(View):
 
     def get(self, request):
         data = requests.get(self.url.format('bamblebam')).json()
-        print(data)
-        return render(request, self.template_name)
+        context = {
+            'data': data,
+        }
+        return render(request, self.template_name, context=context)
+
 
 # def Home(request):
 #     return render(request, 'content/home.html')
