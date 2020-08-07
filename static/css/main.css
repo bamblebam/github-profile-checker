@@ -12,6 +12,7 @@ body{
 .cover{
     background-color: white;
     padding: 25px;
+    margin: 25px 0;
 }
 
 .statistics{
@@ -27,4 +28,16 @@ body{
     border-radius: 50%;
     height: 100px;
     width: 100px;
+}
+
+.followers{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.follower_avatar{
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
 }

@@ -31,7 +31,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <div class="cover">
+                <div class="cover cover-stat">
                     <div class="statistics">
                         <img src="{{data.avatar_url}}" class="avatar" alt="">
                         <div class="name">
@@ -51,6 +51,12 @@
                         </span>
                         <h5>{{data.bio}}</h5>
                     </div>
+                    <div style="display:flex;">
+                        <span class="material-icons" style="padding-right:20px;">
+                            attachment
+                        </span>
+                        <a href="{{data.html_url}}">{{data.html_url}}</a>
+                    </div>
                     {% if data.blog %}
                     <div style="display:flex;">
                         <span class="material-icons" style="padding-right:20px;">
@@ -61,9 +67,34 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6"></div>
+            <div class="col-xs-12 col-md-6">
+                <div class="cover">
+                    <div class="followers">
+                        {% for follower in follower_list %}
+                        <div class="follower">
+                            <div class="statistics">
+                                <img src="{{follower.avatar_url}}" class="follower_avatar" alt="">
+                                <div class="">
+                                    <br>
+                                    <div class="">
+                                        <p>{{follower.login}}</p>
+                                    </div>
+                                    <div class="">
+                                        <h5>{{follower.name}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        newheight = $(".cover-stat").height()
+        $(".followers").height(newheight)
+    </script>
 </body>
 
 </html>
