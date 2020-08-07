@@ -5,12 +5,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <!--optional JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>bam</h1>
+    <div class="container mt-5">
+        <form action="" class="form-group d-flex">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Enter Username">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="container mt-5">
+        <h1>bam</h1>
+    </div>
 </body>
 
 </html>
