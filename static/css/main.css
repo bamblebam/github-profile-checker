@@ -36,8 +36,17 @@ body{
     overflow-y: auto;
 }
 
+.follower{
+    margin: 12px 0;
+}
+
 .follower_avatar{
     border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
+}
+
+.follower-name{
+    padding-left: 20px;
+    font-size: 15px;
 }
