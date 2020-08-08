@@ -41,8 +41,8 @@ class Home(View):
         chartConfig["numberSuffix"] = "K"
         chartConfig["theme"] = "fusion"
         datasource["chart"] = chartConfig
-        column2D = FusionCharts("column2d", "myFirstChart", "600",
-                                "400", "myFirstchart-container", "json", datasource)
+        column2D = FusionCharts("column2d", "myFirstChart", "100%",
+                                "100%", "myFirstchart-container", "json", datasource)
         print(datasource)
         context = {
             'data': data,
@@ -50,7 +50,3 @@ class Home(View):
             'output': column2D.render(),
         }
         return render(request, self.template_name, context=context)
-
-
-# def Home(request):
-#     return render(request, 'content/home.html')

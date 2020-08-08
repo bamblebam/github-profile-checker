@@ -90,11 +90,19 @@
                 </div>
             </div>
         </div>
-        <div id="myFirstchart-container">{{ output|safe }}</div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div id="myFirstchart-container" class="chart">{{ output|safe }}</div>
+            </div>
+            <div class="col-xs-12 col-md-6"></div>
+        </div>
+
     </div>
     <script>
         newheight = $(".cover-stat").height()
+        newwidth = $(".cover-stat").width()
         $(".followers").height(newheight)
+        $("#myFirstChart").width(newwidth)
     </script>
 </body>
 
