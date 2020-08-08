@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View
+from collections import OrderedDict
 import requests
+from .fusioncharts import FusionCharts
 # Create your views here.
 
 
@@ -21,14 +23,31 @@ class Home(View):
         language_list = [repo["language"]
                          for repo in repo_list if repo["language"]]
         language_set = list(set(language_list))
-        language_dict = dict()
+        chart_data = list()
+        datasource = OrderedDict()
         for language in language_set:
+            language_dict = dict()
             count = language_list.count(language)
-            language_dict[language] = count
+            language_dict["label"] = language
+            language_dict["value"] = str(count)
+            chart_data.append(language_dict)
 
+        datasource["data"] = chart_data
+        chartConfig = OrderedDict()
+        chartConfig["caption"] = "Countries With Most Oil Reserves [2017-18]"
+        chartConfig["subCaption"] = "In MMbbl = One Million barrels"
+        chartConfig["xAxisName"] = "Language"
+        chartConfig["yAxisName"] = "Count"
+        chartConfig["numberSuffix"] = "K"
+        chartConfig["theme"] = "fusion"
+        datasource["chart"] = chartConfig
+        column2D = FusionCharts("column2d", "myFirstChart", "600",
+                                "400", "myFirstchart-container", "json", datasource)
+        print(datasource)
         context = {
             'data': data,
-            'follower_list': follower_list
+            'follower_list': follower_list,
+            'output': column2D.render(),
         }
         return render(request, self.template_name, context=context)
 
