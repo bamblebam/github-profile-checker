@@ -34,19 +34,18 @@ class Home(View):
 
         datasource["data"] = chart_data
         chartConfig = OrderedDict()
-        chartConfig["caption"] = "Countries With Most Oil Reserves [2017-18]"
-        chartConfig["subCaption"] = "In MMbbl = One Million barrels"
-        chartConfig["xAxisName"] = "Language"
-        chartConfig["yAxisName"] = "Count"
-        chartConfig["numberSuffix"] = "K"
+        chartConfig["caption"] = "Languages used by user"
+        chartConfig["showpercentvalues"] = '1'
+        chartConfig["decimals"] = '1'
+        chartConfig["plottooltext"] = "$label"
         chartConfig["theme"] = "fusion"
         datasource["chart"] = chartConfig
-        column2D = FusionCharts("column2d", "myFirstChart", "100%",
-                                "100%", "myFirstchart-container", "json", datasource)
+        language_chart = FusionCharts("doughnut2d", "myFirstChart", "100%",
+                                      "400", "myFirstchart-container", "json", datasource)
         print(datasource)
         context = {
             'data': data,
             'follower_list': follower_list,
-            'output': column2D.render(),
+            'output': language_chart.render(),
         }
         return render(request, self.template_name, context=context)
