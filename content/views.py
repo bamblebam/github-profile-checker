@@ -32,6 +32,12 @@ class Home(View):
             language_dict["value"] = str(count)
             chart_data.append(language_dict)
 
+        name_dict = dict()
+        for repo in repo_list:
+            name_dict[repo["name"]] = repo["html_url"]
+
+        print(name_dict)
+
         datasource["data"] = chart_data
         chartConfig = OrderedDict()
         chartConfig["caption"] = "Languages used by user"
@@ -42,10 +48,10 @@ class Home(View):
         datasource["chart"] = chartConfig
         language_chart = FusionCharts("doughnut2d", "myFirstChart", "100%",
                                       "400", "myFirstchart-container", "json", datasource)
-        print(datasource)
         context = {
             'data': data,
             'follower_list': follower_list,
             'output': language_chart.render(),
+            'repos': name_dict
         }
         return render(request, self.template_name, context=context)
