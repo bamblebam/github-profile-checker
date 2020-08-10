@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="cover">
+                <div class="cover cover-follower">
                     <div class="followers">
                         {% for follower in follower_list %}
                         <div class="follower">
@@ -111,11 +111,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <div id="myFirstchart-container" class="cover">{{ output|safe }}</div>
+                <div id="myFirstchart-container" class="cover cover-chart">{{ output|safe }}</div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="cover">
-                    <div class="followers repos">
+                    <div class="followers repos cover-repos">
                         {% for key,value in repos.items %}
                         <div class="follower">
                             <div class="follower-name">

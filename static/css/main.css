@@ -13,7 +13,34 @@ body{
     background-color: white;
     padding: 25px;
     margin: 25px 0;
+    position: relative;
 }
+
+.cover-stat::after,.cover-follower::after,.cover-repos::after,.cover-chart::after{
+    content: 'User';
+    position: absolute;
+    background-color: white;
+    height: 30px;
+    min-width: 50px;
+    top: -30px;
+    left: 0;
+    font-size: 20px;
+}
+
+.cover-follower::after{
+    content: 'Followers';
+    min-width: 75px;
+}
+
+.cover-repos::after{
+    content: 'Repositories';
+    min-width: 75px;
+}
+
+.cover-chart::after{
+    content: 'Chart';
+}
+
 
 .statistics{
     display: flex;
