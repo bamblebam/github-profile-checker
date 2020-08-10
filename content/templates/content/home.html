@@ -26,7 +26,8 @@
 
 <body>
     <div class="container mt-5">
-        <form action="" class="form-group d-flex">
+        <form method="POST" class="form-group d-flex">
+            {% csrf_token %}
             <input type="text" id="search" name="search" class="form-control" placeholder="Enter Username">
             <button class="btn btn-outline-secondary" type="submit">Search</button>
         </form>
