@@ -36,7 +36,10 @@ class Home(View):
         for repo in repo_list:
             name_dict[repo["name"]] = repo["html_url"]
 
-        print(name_dict)
+        followers = data["followers"]
+        following = data["following"]
+        public_gists = data["public_gists"]
+        public_repos = data["public_repos"]
 
         datasource["data"] = chart_data
         chartConfig = OrderedDict()
@@ -52,6 +55,10 @@ class Home(View):
             'data': data,
             'follower_list': follower_list,
             'output': language_chart.render(),
-            'repos': name_dict
+            'repos': name_dict,
+            'followers': followers,
+            'following': following,
+            'public_gists': public_gists,
+            'public_repos': public_repos,
         }
         return render(request, self.template_name, context=context)
